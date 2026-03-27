@@ -6,6 +6,8 @@
 
 ## 快速开始
 
+模板仓库地址：`https://github.com/hkding0125/academic-console-template`
+
 1. 在 GitHub 上点击 **Use this template**。
 2. 替换以下文件中的占位内容：
    - `index.html`

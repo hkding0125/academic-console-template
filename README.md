@@ -6,6 +6,8 @@ A terminal-inspired academic homepage template for GitHub Pages and other static
 
 ## Quick Start
 
+Repository URL: `https://github.com/hkding0125/academic-console-template`
+
 1. Click **Use this template** on GitHub.
 2. Replace the placeholder text in:
    - `index.html`
