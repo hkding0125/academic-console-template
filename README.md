@@ -2,6 +2,19 @@
 
 A terminal-inspired academic homepage template for GitHub Pages and other static hosting.
 
+![Template preview](my-academic-site/images/template-preview.svg)
+
+## Quick Start
+
+1. Click **Use this template** on GitHub.
+2. Replace the placeholder text in:
+   - `index.html`
+   - `publications.html`
+   - `contact.html`
+3. Replace the placeholder images in `my-academic-site/images/`.
+4. Update the metadata in `index.html`.
+5. Push the repository and enable GitHub Pages if you want to publish it.
+
 ## What is included
 
 - `index.html` — homepage
@@ -32,6 +45,7 @@ Suggested files to replace:
 - `my-academic-site/images/institution-a.svg`
 - `my-academic-site/images/institution-b.svg`
 - `my-academic-site/images/lab.svg`
+- `my-academic-site/images/template-preview.svg` (optional)
 
 If you do not need logos, you can remove the image tags in the HTML instead.
 

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-label="academic-console-template preview">
+  <rect width="1280" height="720" fill="#f6f7f9"/>
+  <rect x="72" y="56" width="1136" height="608" rx="8" fill="#ffffff" stroke="#dbe1e8"/>
+  <rect x="72" y="56" width="1136" height="74" rx="8" fill="#f4f6f8"/>
+  <text x="108" y="102" font-family="monospace" font-size="26" fill="#2f6fcf">Your Name</text>
+  <text x="278" y="102" font-family="monospace" font-size="24" fill="#171b22">:~#</text>
+  <text x="876" y="102" font-family="monospace" font-size="20" fill="#556072">Publications/   Contact/   Scholar/</text>
+
+  <rect x="118" y="176" width="148" height="198" rx="4" fill="#eef3fb" stroke="#dbe1e8" stroke-dasharray="5 5"/>
+  <circle cx="192" cy="242" r="34" fill="#bcd0f3"/>
+  <rect x="152" y="285" width="80" height="54" rx="26" fill="#d9e5f8"/>
+
+  <text x="334" y="214" font-family="monospace" font-size="30" fill="#171b22">Hi!</text>
+  <text x="334" y="245" font-family="monospace" font-size="22" fill="#171b22">===</text>
+  <text x="334" y="292" font-family="monospace" font-size="24" fill="#556072">Academic homepage template with a terminal-inspired style.</text>
+  <text x="334" y="332" font-family="monospace" font-size="24" fill="#556072">Simple HTML/CSS/JS. Easy to customize and deploy.</text>
+  <text x="334" y="378" font-family="monospace" font-size="22" fill="#556072">Publications / Contact / Scholar / CV</text>
+
+  <text x="118" y="452" font-family="monospace" font-size="24" fill="#171b22">&gt; Latest publications</text>
+  <line x1="118" y1="470" x2="562" y2="470" stroke="#dbe1e8" stroke-dasharray="6 6"/>
+  <text x="118" y="514" font-family="monospace" font-size="22" fill="#171b22">Sample Paper Title for a Conference Publication</text>
+  <text x="118" y="548" font-family="monospace" font-size="20" fill="#556072">Your Name, Collaborator A, Collaborator B</text>
+  <text x="118" y="580" font-family="monospace" font-size="20" fill="#556072">Conference Name 2026  [doi] [project]</text>
+
+  <text x="700" y="452" font-family="monospace" font-size="24" fill="#171b22">&gt; news</text>
+  <line x1="700" y1="470" x2="1148" y2="470" stroke="#dbe1e8" stroke-dasharray="6 6"/>
+  <text x="700" y="514" font-family="monospace" font-size="20" fill="#7b8494">2026.03</text>
+  <text x="826" y="514" font-family="monospace" font-size="20" fill="#556072">Recent update, award, or paper milestone.</text>
+  <text x="700" y="548" font-family="monospace" font-size="20" fill="#7b8494">2026.01</text>
+  <text x="826" y="548" font-family="monospace" font-size="20" fill="#556072">Use short entries that are easy to scan.</text>
+
+  <text x="118" y="640" font-family="monospace" font-size="18" fill="#7b8494">academic-console-template</text>
+</svg>

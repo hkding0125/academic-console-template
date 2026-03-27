@@ -2,6 +2,19 @@
 
 一个适用于 GitHub Pages 和其他静态托管平台的终端风格学术主页模板。
 
+![模板预览](my-academic-site/images/template-preview.svg)
+
+## 快速开始
+
+1. 在 GitHub 上点击 **Use this template**。
+2. 替换以下文件中的占位内容：
+   - `index.html`
+   - `publications.html`
+   - `contact.html`
+3. 替换 `my-academic-site/images/` 中的占位图片。
+4. 更新 `index.html` 中的元信息。
+5. 推送仓库，并在需要时启用 GitHub Pages 发布网站。
+
 ## 包含内容
 
 - `index.html` — 首页
@@ -32,6 +45,7 @@
 - `my-academic-site/images/institution-a.svg`
 - `my-academic-site/images/institution-b.svg`
 - `my-academic-site/images/lab.svg`
+- `my-academic-site/images/template-preview.svg`（可选）
 
 如果你不需要 logo，也可以直接删除 HTML 里的对应图片标签。
 
