@@ -14,9 +14,9 @@ A terminal-inspired academic homepage template for GitHub Pages and other static
 
 ![Template preview](my-academic-site/images/template-preview.svg)
 
-## Quick Start
+## Quick Start 🚀
 
-Repository URL: `https://github.com/hkding0125/academic-console-template`
+🔗 Repository URL: `https://github.com/hkding0125/academic-console-template`
 
 If you are new to GitHub Pages, you only need to do these 4 things:
 
@@ -27,25 +27,25 @@ If you are new to GitHub Pages, you only need to do these 4 things:
 
 That is enough to get a basic version online.
 
-## Beginner Checklist
+## Beginner Checklist ✅
 
 If you want the simplest path, update these items first:
-- your name
-- your short introduction
-- your publication entries
-- your contact links
-- your avatar / logo files
+- 👤 your name
+- 📝 your short introduction
+- 📚 your publication entries
+- 🔗 your contact links
+- 🖼️ your avatar / logo files
 
 You can ignore everything else until the site is already online.
 
-## What is included
+## What is included 📦
 
-- `index.html` — homepage
-- `publications.html` — publications page
-- `contact.html` — contact page
-- `styles.css` — shared styling
-- `scripts.js` — theme toggle, modal behavior, and utility scripts
-- `my-academic-site/images/` — placeholder images and logos
+- `index.html` — 🏠 homepage
+- `publications.html` — 📄 publications page
+- `contact.html` — ✉️ contact page
+- `styles.css` — 🎨 shared styling
+- `scripts.js` — ⚙️ theme toggle, modal behavior, and utility scripts
+- `my-academic-site/images/` — 🖼️ placeholder images and logos
 
 ## Customize this template
 
@@ -99,6 +99,36 @@ You can deploy this site with:
 - any static file host
 
 For GitHub Pages, push the repository and enable Pages from the default branch.
+
+## CV import helper
+
+If you want a faster starting point, open `import.html` or `import.zh.html` in your browser.
+
+This repository also includes:
+- `import.html` — English import helper
+- `import.zh.html` — Chinese helper interface
+
+It can:
+- upload a `.pdf` or `.docx` CV
+- extract text in the browser
+- draft fields for name, bio, education, experience, publications, awards, service, news, and contact links
+- generate HTML snippets for `index.html`, `publications.html`, and `contact.html`
+- download generated snippets and full pages as `.html` files
+- show live previews before you copy anything
+
+Recommended workflow:
+1. Open `import.html` or `import.zh.html`.
+2. Upload your CV file.
+3. Review the extracted text and editable fields.
+4. Copy or download the generated HTML snippets.
+5. Paste them into the relevant template pages.
+
+Notes:
+- `import.zh.html` is only a Chinese helper interface; the generated site content and exported pages remain in English.
+- This importer is a first-draft helper, not a perfect converter.
+- Text-based PDFs work better than scanned-image PDFs.
+- Publication parsing may still need manual cleanup.
+- The final site remains plain HTML/CSS/JS.
 
 ## README languages
 

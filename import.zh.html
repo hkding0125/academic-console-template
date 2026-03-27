@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>CV 导入助手 · academic-console-template</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="从 PDF 或 DOCX CV 导入内容，并为 academic-console-template 生成 HTML 片段。" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <nav class="site-nav" aria-label="主导航">
+      <div class="site-brand" aria-label="site mark"><span class="site-mark"><a class="site-mark-link" href="index.zh.html">academic-console</a><span class="site-mark-prompt">:~#</span></span><span class="site-path">import/</span></div>
+      <div class="nav-links">
+        <a href="index.zh.html">首页/</a>
+        <a href="publications.zh.html">论文/</a>
+        <a href="contact.zh.html">联系/</a>
+        <a class="nav-active" href="import.zh.html">导入/</a>
+        <a href="import.html">EN/</a>
+      </div>
+      <button id="theme-switcher" type="button" aria-label="切换深色模式">☾</button>
+    </nav>
+
+    <header class="page-header">
+      <p class="prompt-line">$ import cv --input resume.pdf --output snippets</p>
+      <h1>cv 导入助手</h1>
+      <p class="page-summary">上传 PDF 或 DOCX 格式的 CV，检查提取结果，并为这个模板生成可复制的 HTML 片段。</p>
+      <p class="page-note">这个工具更适合生成第一版草稿。正式发布前请务必手动检查内容。</p>
+    </header>
+
+    <main class="main-content import-layout">
+      <section class="content-section import-panel" id="import-inputs">
+        <h2>上传</h2>
+        <p class="section-intro">支持格式：<code>.pdf</code> 和 <code>.docx</code>。如果 PDF 文本本身不可选中，提取效果会明显下降，扫描版 PDF 通常需要手动整理。</p>
+        <div class="import-upload-row">
+          <label class="import-file-label" for="cvFile">选择 CV 文件</label>
+          <input id="cvFile" class="import-file-input" type="file" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
+          <button id="parseDemo" type="button" class="import-button subtle-button">加载示例内容</button>
+        </div>
+        <p id="importStatus" class="import-status" aria-live="polite">等待上传文件。</p>
+        <details class="import-details">
+          <summary>提高识别效果的小建议</summary>
+          <ul class="plain-list compact-list">
+            <li>优先使用文本可选中的 PDF，而不是扫描图片版 PDF。</li>
+            <li>CV 里最好有清晰的小节标题，比如 Education、Experience、Publications、Awards、Contact。</li>
+            <li>带 DOI 的论文条目通常更容易识别。</li>
+            <li>所有提取字段都可以在生成 HTML 前手动修改。</li>
+          </ul>
+        </details>
+      </section>
+
+      <section class="content-section import-panel" id="import-text">
+        <h2>提取文本</h2>
+        <textarea id="rawText" class="import-textarea import-raw-text" placeholder="提取到的 CV 文本会显示在这里。你也可以直接粘贴文本。"></textarea>
+        <div class="import-actions">
+          <button id="analyzeText" type="button" class="import-button">分析文本</button>
+          <button id="clearAll" type="button" class="import-button subtle-button">清空</button>
+        </div>
+      </section>
+
+      <section class="content-section import-panel" id="structured-fields">
+        <h2>结构化草稿</h2>
+        <p class="section-intro">下面这些字段决定生成的 HTML 片段内容。你可以先修改，再复制到页面里。</p>
+
+        <div class="import-grid two-columns">
+          <label class="import-field">
+            <span>姓名</span>
+            <input id="fieldName" type="text" placeholder="你的名字" />
+          </label>
+          <label class="import-field">
+            <span>单位 / 机构</span>
+            <input id="fieldAffiliation" type="text" placeholder="院系 / 实验室 / 学校 / 机构" />
+          </label>
+        </div>
+
+        <label class="import-field">
+          <span>个人简介</span>
+          <textarea id="fieldBio" class="import-textarea" placeholder="用于首页的一段简短介绍。"></textarea>
+        </label>
+
+        <div class="import-grid two-columns">
+          <label class="import-field">
+            <span>邮箱</span>
+            <input id="fieldEmail" type="text" placeholder="you@example.com" />
+          </label>
+          <label class="import-field">
+            <span>个人网站</span>
+            <input id="fieldWebsite" type="url" placeholder="https://example.com" />
+          </label>
+          <label class="import-field">
+            <span>Google Scholar</span>
+            <input id="fieldScholar" type="url" placeholder="https://scholar.google.com/..." />
+          </label>
+          <label class="import-field">
+            <span>GitHub</span>
+            <input id="fieldGithub" type="url" placeholder="https://github.com/..." />
+          </label>
+          <label class="import-field">
+            <span>ORCID</span>
+            <input id="fieldOrcid" type="url" placeholder="https://orcid.org/..." />
+          </label>
+          <label class="import-field">
+            <span>CV 链接</span>
+            <input id="fieldCvLink" type="url" placeholder="https://example.com/cv.pdf" />
+          </label>
+        </div>
+
+        <label class="import-field">
+          <span>教育经历</span>
+          <textarea id="fieldEducation" class="import-textarea" placeholder="每行一条。示例：PhD in Robotics | University Name | 2022–2026"></textarea>
+        </label>
+
+        <label class="import-field">
+          <span>研究 / 工作经历</span>
+          <textarea id="fieldExperience" class="import-textarea" placeholder="每行一条。示例：Research Intern | Lab / Group | 2025–present"></textarea>
+        </label>
+
+        <label class="import-field">
+          <span>论文</span>
+          <textarea id="fieldPublications" class="import-textarea import-publications" placeholder="每篇论文一个段落，段落之间留一个空行。"></textarea>
+        </label>
+
+        <label class="import-field">
+          <span>奖励 / 荣誉</span>
+          <textarea id="fieldAwards" class="import-textarea" placeholder="每行一条。示例：Best Paper Award | Conference Name | 2025"></textarea>
+        </label>
+
+        <label class="import-field">
+          <span>学术服务</span>
+          <textarea id="fieldService" class="import-textarea" placeholder="每行一条。示例：Reviewer, Conference Name, 2025"></textarea>
+        </label>
+
+        <label class="import-field">
+          <span>动态 / News</span>
+          <textarea id="fieldNews" class="import-textarea" placeholder="每行一条。示例：2026.03 | Paper accepted to Conference Name"></textarea>
+        </label>
+
+        <div class="import-actions">
+          <button id="generateSnippets" type="button" class="import-button">生成 HTML 片段</button>
+        </div>
+      </section>
+
+      <section class="content-section import-panel" id="generated-output">
+        <h2>生成片段</h2>
+        <p class="section-intro">把下面的片段复制到 <code>index.html</code>、<code>publications.html</code> 和 <code>contact.html</code> 里即可。</p>
+
+        <div class="snippet-block">
+          <div class="snippet-header">
+            <h3>首页简介 + 链接</h3>
+            <div class="snippet-actions">
+              <button type="button" class="copy-button" data-copy-target="homepageSnippet">复制</button>
+              <button type="button" class="copy-button" data-download-target="homepageSnippet" data-download-name="homepage-snippet.html">下载</button>
+            </div>
+          </div>
+          <textarea id="homepageSnippet" class="import-textarea snippet-output" readonly></textarea>
+        </div>
+
+        <div class="snippet-block">
+          <div class="snippet-header">
+            <h3>首页教育 + 经历</h3>
+            <div class="snippet-actions">
+              <button type="button" class="copy-button" data-copy-target="detailsSnippet">复制</button>
+              <button type="button" class="copy-button" data-download-target="detailsSnippet" data-download-name="homepage-details-snippet.html">下载</button>
+            </div>
+          </div>
+          <textarea id="detailsSnippet" class="import-textarea snippet-output" readonly></textarea>
+        </div>
+
+        <div class="snippet-block">
+          <div class="snippet-header">
+            <h3>论文页列表</h3>
+            <div class="snippet-actions">
+              <button type="button" class="copy-button" data-copy-target="publicationsSnippet">复制</button>
+              <button type="button" class="copy-button" data-download-target="publicationsSnippet" data-download-name="publications-snippet.html">下载</button>
+            </div>
+          </div>
+          <textarea id="publicationsSnippet" class="import-textarea snippet-output" readonly></textarea>
+        </div>
+
+        <div class="snippet-block">
+          <div class="snippet-header">
+            <h3>联系页列表</h3>
+            <div class="snippet-actions">
+              <button type="button" class="copy-button" data-copy-target="contactSnippet">复制</button>
+              <button type="button" class="copy-button" data-download-target="contactSnippet" data-download-name="contact-snippet.html">下载</button>
+            </div>
+          </div>
+          <textarea id="contactSnippet" class="import-textarea snippet-output" readonly></textarea>
+        </div>
+
+        <div class="snippet-block">
+          <div class="snippet-header">
+            <h3>首页动态 + 奖励 + 服务</h3>
+            <div class="snippet-actions">
+              <button type="button" class="copy-button" data-copy-target="extrasSnippet">复制</button>
+              <button type="button" class="copy-button" data-download-target="extrasSnippet" data-download-name="homepage-extras-snippet.html">下载</button>
+            </div>
+          </div>
+          <textarea id="extrasSnippet" class="import-textarea snippet-output" readonly></textarea>
+        </div>
+      </section>
+
+      <section class="content-section import-panel" id="generated-pages">
+        <h2>完整页面导出</h2>
+        <p class="section-intro">如果你不想手动粘贴片段，也可以直接下载生成好的完整页面作为起点。</p>
+        <div class="import-actions">
+          <button type="button" class="import-button" data-download-page="home">下载首页</button>
+          <button type="button" class="import-button" data-download-page="publications">下载论文页</button>
+          <button type="button" class="import-button" data-download-page="contact">下载联系页</button>
+        </div>
+      </section>
+
+      <section class="content-section import-panel" id="preview-output">
+        <h2>实时预览</h2>
+        <p class="section-intro">先看预览效果，再决定复制或下载 HTML。</p>
+
+        <div class="preview-block">
+          <div class="snippet-header">
+            <h3>首页预览</h3>
+          </div>
+          <div id="homepagePreview" class="preview-surface"></div>
+        </div>
+
+        <div class="preview-block">
+          <div class="snippet-header">
+            <h3>论文页预览</h3>
+          </div>
+          <div id="publicationsPreview" class="preview-surface"></div>
+        </div>
+
+        <div class="preview-block">
+          <div class="snippet-header">
+            <h3>联系页预览</h3>
+          </div>
+          <div id="contactPreview" class="preview-surface"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer compact-footer">
+      <p class="footer-meta">可选辅助页面 · Last updated <time id="lastUpdated" datetime="">—</time></p>
+    </footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+  <script>
+    if (window.pdfjsLib) {
+      window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+    }
+  </script>
+  <script src="https://unpkg.com/mammoth/mammoth.browser.min.js"></script>
+  <script src="scripts.js"></script>
+  <script src="import.js"></script>
+</body>
+</html>
