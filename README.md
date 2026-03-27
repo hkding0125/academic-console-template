@@ -1,5 +1,7 @@
 # academic-console-template
 
+[中文说明](README.zh.md)
+
 A terminal-inspired academic homepage template for GitHub Pages and other static hosting.
 
 ![Template preview](my-academic-site/images/template-preview.svg)
@@ -8,14 +10,25 @@ A terminal-inspired academic homepage template for GitHub Pages and other static
 
 Repository URL: `https://github.com/hkding0125/academic-console-template`
 
-1. Click **Use this template** on GitHub.
-2. Replace the placeholder text in:
-   - `index.html`
-   - `publications.html`
-   - `contact.html`
+If you are new to GitHub Pages, you only need to do these 4 things:
+
+1. Click **Use this template**.
+2. Edit `index.html`, `publications.html`, and `contact.html`.
 3. Replace the placeholder images in `my-academic-site/images/`.
-4. Update the metadata in `index.html`.
-5. Push the repository and enable GitHub Pages if you want to publish it.
+4. Push your repo and enable GitHub Pages.
+
+That is enough to get a basic version online.
+
+## Beginner Checklist
+
+If you want the simplest path, update these items first:
+- your name
+- your short introduction
+- your publication entries
+- your contact links
+- your avatar / logo files
+
+You can ignore everything else until the site is already online.
 
 ## What is included
 

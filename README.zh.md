@@ -1,5 +1,7 @@
 # academic-console-template
 
+[English README](README.md)
+
 一个适用于 GitHub Pages 和其他静态托管平台的终端风格学术主页模板。
 
 ![模板预览](my-academic-site/images/template-preview.svg)
@@ -8,14 +10,25 @@
 
 模板仓库地址：`https://github.com/hkding0125/academic-console-template`
 
+如果你是第一次用 GitHub Pages，其实只需要做这 4 件事：
+
 1. 在 GitHub 上点击 **Use this template**。
-2. 替换以下文件中的占位内容：
-   - `index.html`
-   - `publications.html`
-   - `contact.html`
-3. 替换 `my-academic-site/images/` 中的占位图片。
-4. 更新 `index.html` 中的元信息。
-5. 推送仓库，并在需要时启用 GitHub Pages 发布网站。
+2. 修改 `index.html`、`publications.html`、`contact.html`。
+3. 替换 `my-academic-site/images/` 里的占位图片。
+4. 推送仓库，并启用 GitHub Pages。
+
+做到这里，网站基础版本就可以先上线。
+
+## 小白最先改什么
+
+如果你想先用最简单的方式跑起来，优先改这些：
+- 你的名字
+- 首页简介
+- 论文条目
+- 联系方式链接
+- 头像 / logo 图片
+
+其他内容可以等网站先上线以后再慢慢改。
 
 ## 包含内容
 
