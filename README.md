@@ -1,0 +1,77 @@
+# academic-console-template
+
+A terminal-inspired academic homepage template for GitHub Pages and other static hosting.
+
+## What is included
+
+- `index.html` — homepage
+- `publications.html` — publications page
+- `contact.html` — contact page
+- `styles.css` — shared styling
+- `scripts.js` — theme toggle, modal behavior, and utility scripts
+- `my-academic-site/images/` — placeholder images and logos
+
+## Customize this template
+
+### 1. Replace your identity
+Edit these files first:
+- `index.html`
+- `publications.html`
+- `contact.html`
+
+Search for:
+- `Your Name`
+- `example.com`
+- sample paper titles
+- placeholder institutions and dates
+
+### 2. Replace placeholder assets
+Suggested files to replace:
+- `my-academic-site/images/avatar-illustration.svg`
+- `my-academic-site/images/avatar-photo.svg`
+- `my-academic-site/images/institution-a.svg`
+- `my-academic-site/images/institution-b.svg`
+- `my-academic-site/images/lab.svg`
+
+If you do not need logos, you can remove the image tags in the HTML instead.
+
+### 3. Update site metadata
+In `index.html`, update:
+- page title
+- meta description
+- `og:title`
+- `og:description`
+- `og:image`
+- `og:url`
+- canonical URL
+
+### 4. Add your own links
+Replace placeholder links for:
+- Google Scholar
+- CV
+- ORCID
+- GitHub
+- personal website
+- project/demo links
+
+### 5. Deploy
+You can deploy this site with:
+- GitHub Pages
+- Cloudflare Pages
+- Netlify
+- any static file host
+
+For GitHub Pages, push the repository and enable Pages from the default branch.
+
+## Notes
+
+- This template is plain HTML/CSS/JS — it does **not** depend on Hugo.
+- The visual style is inspired by [`hugo-theme-console`](https://github.com/mrmierzejewski/hugo-theme-console/), but implemented independently.
+
+## Suggested cleanup after using this template
+
+Before publishing your own site, make sure you have removed:
+- placeholder names
+- sample publication entries
+- example links
+- unused placeholder assets

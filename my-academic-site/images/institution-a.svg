@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56" role="img" aria-label="Institution placeholder logo">
+  <rect width="56" height="56" rx="8" fill="#f4f6f8"/>
+  <rect x="10" y="10" width="36" height="36" rx="6" fill="#ffffff" stroke="#dbe1e8" stroke-dasharray="3 3"/>
+  <text x="28" y="33" text-anchor="middle" font-family="monospace" font-size="14" fill="#2f6fcf">A</text>
+</svg>

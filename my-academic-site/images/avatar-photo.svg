@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 210" role="img" aria-label="Photo avatar placeholder">
+  <rect width="160" height="210" fill="#eef3fb"/>
+  <rect x="16" y="16" width="128" height="178" rx="4" fill="#ffffff" stroke="#dbe1e8"/>
+  <circle cx="80" cy="74" r="24" fill="#7fa6e8"/>
+  <rect x="47" y="108" width="66" height="50" rx="25" fill="#c7d8f5"/>
+  <text x="80" y="184" text-anchor="middle" font-family="monospace" font-size="13" fill="#556072">photo</text>
+</svg>
