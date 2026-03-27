@@ -1,6 +1,14 @@
 # academic-console-template
 
-[Live Demo](https://hkding0125.github.io/academic-console-template/) · [Use this template](https://github.com/hkding0125/academic-console-template/generate) · [中文说明](README.zh.md)
+<p align="center">
+  <img src="my-academic-site/images/readme-mascot.svg" alt="academic-console mascot" width="140" />
+</p>
+
+<p align="center">
+  <a href="https://hkding0125.github.io/academic-console-template/">Live Demo</a> ·
+  <a href="https://github.com/hkding0125/academic-console-template/generate">Use this template</a> ·
+  <a href="README.zh.md">中文说明</a>
+</p>
 
 A terminal-inspired academic homepage template for GitHub Pages and other static hosting.
 

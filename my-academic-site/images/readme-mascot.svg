@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" role="img" aria-label="terminal mascot">
+  <rect width="220" height="220" rx="24" fill="#f6f7f9"/>
+  <rect x="34" y="36" width="152" height="110" rx="12" fill="#161b22"/>
+  <circle cx="54" cy="56" r="5" fill="#ff7b72"/>
+  <circle cx="70" cy="56" r="5" fill="#f2cc60"/>
+  <circle cx="86" cy="56" r="5" fill="#7ee787"/>
+  <text x="56" y="92" font-family="monospace" font-size="18" fill="#9dbdff">&gt;_</text>
+  <text x="56" y="116" font-family="monospace" font-size="12" fill="#b6c0cf">academic-console</text>
+  <circle cx="110" cy="178" r="30" fill="#d9e5f8"/>
+  <circle cx="98" cy="172" r="4" fill="#171b22"/>
+  <circle cx="122" cy="172" r="4" fill="#171b22"/>
+  <path d="M98 191c6 5 18 5 24 0" fill="none" stroke="#171b22" stroke-width="3" stroke-linecap="round"/>
+  <path d="M82 154l-16-18" stroke="#2f6fcf" stroke-width="8" stroke-linecap="round"/>
+  <path d="M138 154l16-18" stroke="#2f6fcf" stroke-width="8" stroke-linecap="round"/>
+</svg>
