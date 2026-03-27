@@ -1,6 +1,6 @@
 # academic-console-template
 
-[English README](README.md)
+[在线预览](https://hkding0125.github.io/academic-console-template/) · [使用模板](https://github.com/hkding0125/academic-console-template/generate) · [English README](README.md)
 
 一个适用于 GitHub Pages 和其他静态托管平台的终端风格学术主页模板。
 
