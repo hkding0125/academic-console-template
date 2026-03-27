@@ -63,6 +63,12 @@ You can deploy this site with:
 
 For GitHub Pages, push the repository and enable Pages from the default branch.
 
+## README languages
+
+This repository includes:
+- `README.md` — English
+- `README.zh.md` — 中文说明
+
 ## Notes
 
 - This template is plain HTML/CSS/JS — it does **not** depend on Hugo.
