@@ -105,23 +105,24 @@ For GitHub Pages, push the repository and enable Pages from the default branch.
 If you want a faster starting point, open `import.html` or `import.zh.html` in your browser.
 
 This repository also includes:
-- `import.html` — English import helper
+- `import.html` — English import wizard
 - `import.zh.html` — Chinese helper interface
 
 It can:
 - upload a `.pdf` or `.docx` CV
 - extract text in the browser
-- draft fields for name, bio, education, experience, publications, awards, service, news, and contact links
-- generate HTML snippets for `index.html`, `publications.html`, and `contact.html`
-- download generated snippets and full pages as `.html` files
-- show live previews before you copy anything
+- auto-fill key fields such as name, bio, education, experience, publications, awards, service, news, and contact links
+- show a small quick-review form by default
+- refresh previews automatically as you edit
+- download ready-to-use homepage, publications, and contact pages
+- still expose raw text and HTML snippets under advanced sections when you need them
 
 Recommended workflow:
 1. Open `import.html` or `import.zh.html`.
 2. Upload your CV file.
-3. Review the extracted text and editable fields.
-4. Copy or download the generated HTML snippets.
-5. Paste them into the relevant template pages.
+3. Review only the key fields you care about.
+4. Check the live previews.
+5. Download the generated pages and use them as your starting point.
 
 Notes:
 - `import.zh.html` is only a Chinese helper interface; the generated site content and exported pages remain in English.

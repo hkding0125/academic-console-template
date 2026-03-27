@@ -105,23 +105,24 @@
 如果你想更快开始，可以直接在浏览器里打开 `import.html` 或 `import.zh.html`。
 
 现在仓库里包含：
-- `import.html` — English import helper
+- `import.html` — English import wizard
 - `import.zh.html` — Chinese helper interface
 
 它可以：
 - 上传 `.pdf` 或 `.docx` 格式的 CV
 - 在浏览器里提取文本
-- 自动生成姓名、简介、教育经历、研究/工作经历、论文、奖励、学术服务、动态和联系方式的草稿字段
-- 生成适用于 `index.html`、`publications.html` 和 `contact.html` 的 HTML 片段
-- 直接把生成片段和完整页面下载成 `.html` 文件
-- 在复制前先看实时预览效果
+- 自动填充姓名、简介、教育经历、研究/工作经历、论文、奖励、学术服务、动态和联系方式等字段
+- 默认只展示少量关键字段供快速检查
+- 在你修改时自动刷新预览
+- 直接下载可用的首页、论文页和联系页
+- 需要时仍然可以在高级区域查看原始文本和 HTML 片段
 
 推荐流程：
 1. 打开 `import.html` 或 `import.zh.html`。
 2. 上传你的 CV 文件。
-3. 检查提取出的文本和可编辑字段。
-4. 复制或下载生成的 HTML 片段。
-5. 粘贴到对应模板页面中。
+3. 只检查你关心的关键字段。
+4. 看一下实时预览。
+5. 下载生成页面，把它们当作起点继续修改。
 
 说明：
 - `import.zh.html` 只是中文操作界面，生成的站点内容和导出页面仍然保持英文。

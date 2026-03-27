@@ -1196,9 +1196,41 @@ body.dark-mode {
   gap: 24px;
 }
 
+.import-wizard-layout {
+  gap: 28px;
+}
+
 .import-panel {
   border-top: 1px dashed var(--line);
   padding-top: 14px;
+}
+
+.import-step {
+  padding: 18px 0 0;
+  opacity: 0.72;
+}
+
+.import-step.is-active {
+  opacity: 1;
+}
+
+.import-step-header {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.import-step-kicker {
+  min-width: 62px;
+  margin: 0;
+  color: var(--accent);
+}
+
+.import-upload-card {
+  border: 1px dashed var(--line);
+  padding: 16px;
+  background: color-mix(in srgb, var(--surface) 96%, transparent);
 }
 
 .import-upload-row,
@@ -1210,6 +1242,10 @@ body.dark-mode {
   align-items: center;
 }
 
+.import-upload-row-primary {
+  align-items: stretch;
+}
+
 .import-file-label,
 .import-button,
 .copy-button {
@@ -1218,6 +1254,11 @@ body.dark-mode {
   color: var(--text);
   padding: 8px 12px;
   cursor: pointer;
+}
+
+.import-primary-button {
+  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
 }
 
 .import-file-input {
@@ -1255,6 +1296,22 @@ body.dark-mode {
   margin-top: 14px;
 }
 
+.import-details summary {
+  cursor: pointer;
+}
+
+.import-advanced-block {
+  border-top: 1px dashed var(--line);
+  padding-top: 10px;
+}
+
+.import-advanced-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 14px;
+}
+
 .compact-list {
   gap: 6px;
 }
@@ -1266,6 +1323,10 @@ body.dark-mode {
 
 .import-grid.two-columns {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.import-grid-compact {
+  gap: 12px;
 }
 
 .import-field {
@@ -1294,6 +1355,10 @@ body.dark-mode {
   resize: vertical;
 }
 
+.import-textarea-compact {
+  min-height: 110px;
+}
+
 .import-raw-text {
   min-height: 240px;
 }
@@ -1302,10 +1367,26 @@ body.dark-mode {
   min-height: 220px;
 }
 
+.import-export-actions {
+  margin-bottom: 18px;
+}
+
+.snippet-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .snippet-actions {
   display: inline-flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+.preview-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .preview-page-shell {
@@ -1382,11 +1463,16 @@ body.dark-mode {
 }
 
 @media (max-width: 480px) {
+  .import-step-header,
   .import-upload-row,
   .import-actions,
   .snippet-header {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .import-step-kicker {
+    min-width: 0;
   }
 
   .import-grid.two-columns {

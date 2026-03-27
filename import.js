@@ -66,6 +66,12 @@ const generateButton = document.getElementById('generateSnippets');
 const clearButton = document.getElementById('clearAll');
 const parseDemoButton = document.getElementById('parseDemo');
 
+const stepTargets = {
+  upload: document.getElementById('step-upload'),
+  review: document.getElementById('step-review'),
+  export: document.getElementById('step-export'),
+};
+
 const pageLang = document.documentElement.lang || 'en';
 const isChinesePage = pageLang.toLowerCase().startsWith('zh');
 
@@ -73,10 +79,10 @@ const outputInEnglish = true;
 
 const i18n = {
   waitingForUpload: isChinesePage ? '等待上传文件。' : 'Waiting for file upload.',
-  generatedSnippets: isChinesePage ? '已生成 HTML 片段。请检查后复制或下载。' : 'Generated HTML snippets. Review and copy them into your pages.',
+  generatedSnippets: isChinesePage ? '预览已刷新。满意后可以直接下载生成页面。' : 'Refreshed the previews. Download the generated pages when you are ready.',
   pasteOrExtractFirst: isChinesePage ? '请先粘贴文本或上传并提取 CV 内容。' : 'Paste or extract some CV text first.',
   readingFile: fileName => isChinesePage ? `正在读取 ${fileName}...` : `Reading ${fileName}...`,
-  extractedFile: fileName => isChinesePage ? `已从 ${fileName} 提取文本。你可以继续检查并修改字段。` : `Extracted text from ${fileName}. Review the text and click Analyze text if needed.`,
+  extractedFile: fileName => isChinesePage ? `已从 ${fileName} 提取文本。请检查少量关键字段，然后直接下载页面。` : `Extracted text from ${fileName}. Review a few key fields, then download the generated pages.`,
   parseFailed: isChinesePage ? '无法解析上传的文件。' : 'Could not parse the uploaded file.',
   cleared: isChinesePage ? '已清空导入内容。' : 'Cleared imported content.',
   nothingToDownload: isChinesePage ? '当前没有可下载的内容。' : 'There is nothing to download yet.',
@@ -84,7 +90,7 @@ const i18n = {
   nothingToCopy: isChinesePage ? '当前没有可复制的内容。' : 'There is nothing to copy yet.',
   copied: targetId => isChinesePage ? `已复制 ${targetId}。` : `Copied ${targetId} to clipboard.`,
   clipboardFallback: isChinesePage ? '剪贴板访问失败，已帮你选中内容，请手动复制。' : 'Clipboard access failed. The snippet has been selected for manual copy.',
-  demoLoaded: isChinesePage ? '已加载示例 CV 内容。' : 'Loaded demo CV content.',
+  demoLoaded: isChinesePage ? '已加载示例 CV 内容。你可以直接检查并下载页面。' : 'Loaded demo CV content. You can review the fields and download the pages directly.',
   publicationsNav: 'Publications/ · Contact/ · Scholar/',
   publicationsPageSummary: 'Preview of the generated publications page content.',
   contactPreviewLead: 'Preview of the generated contact section.',
@@ -789,7 +795,19 @@ const downloadGeneratedPage = pageType => {
   setStatus(i18n.downloaded(link.download), 'success');
 };
 
-const generateSnippets = () => {
+const activateWizardStep = stepName => {
+  const order = ['upload', 'review', 'export'];
+  const activeIndex = order.indexOf(stepName);
+  if (activeIndex === -1) return;
+
+  order.forEach((name, index) => {
+    const target = stepTargets[name];
+    if (!target) return;
+    target.classList.toggle('is-active', index <= activeIndex);
+  });
+};
+
+const refreshGeneratedOutput = ({ skipStatus = false } = {}) => {
   const data = getFieldData();
   snippetTargets.homepage.value = buildHomepageSnippet(data);
   snippetTargets.details.value = buildDetailsSnippet(data);
@@ -797,8 +815,12 @@ const generateSnippets = () => {
   snippetTargets.contact.value = buildContactSnippet(data);
   snippetTargets.extras.value = buildExtrasSnippet(data);
   renderPreview(data);
-  setStatus(i18n.generatedSnippets, 'success');
+  activateWizardStep('export');
+  if (!skipStatus) {
+    setStatus(i18n.generatedSnippets, 'success');
+  }
 };
+
 
 const analyzeCurrentText = () => {
   const text = rawTextInput.value.trim();
@@ -809,7 +831,7 @@ const analyzeCurrentText = () => {
 
   importState.rawText = text;
   fillFields(parseCvText(text));
-  generateSnippets();
+  refreshGeneratedOutput();
 };
 
 const extractPdfText = async file => {
@@ -858,9 +880,11 @@ const handleFileUpload = async event => {
     }
 
     rawTextInput.value = text;
+    importState.rawText = text;
     setStatus(i18n.extractedFile(file.name), 'success');
     fillFields(parseCvText(text));
-    generateSnippets();
+    activateWizardStep('review');
+    refreshGeneratedOutput({ skipStatus: true });
   } catch (error) {
     console.error(error);
     setStatus(error.message || i18n.parseFailed, 'error');
@@ -875,7 +899,12 @@ const clearAll = () => {
   Object.values(snippetTargets).forEach(target => {
     target.value = '';
   });
+  Object.values(previewTargets).forEach(target => {
+    if (target) target.innerHTML = '';
+  });
+  importState.rawText = '';
   cvFileInput.value = '';
+  activateWizardStep('upload');
   setStatus(i18n.cleared, 'info');
 };
 
@@ -916,17 +945,19 @@ const copySnippet = async targetId => {
 };
 
 Object.values(fields).forEach(field => {
-  field?.addEventListener('input', generateSnippets);
+  field?.addEventListener('input', () => refreshGeneratedOutput({ skipStatus: true }));
 });
 
 cvFileInput?.addEventListener('change', handleFileUpload);
 analyzeButton?.addEventListener('click', analyzeCurrentText);
-generateButton?.addEventListener('click', generateSnippets);
+generateButton?.addEventListener('click', refreshGeneratedOutput);
 clearButton?.addEventListener('click', clearAll);
 parseDemoButton?.addEventListener('click', () => {
   rawTextInput.value = demoCvText;
+  importState.rawText = demoCvText;
   fillFields(parseCvText(demoCvText));
-  generateSnippets();
+  activateWizardStep('review');
+  refreshGeneratedOutput({ skipStatus: true });
   setStatus(i18n.demoLoaded, 'success');
 });
 
